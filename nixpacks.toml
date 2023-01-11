@@ -1,0 +1,13 @@
+[phases.setup]
+nixPkgs = ["...", "cron"]
+aptPkgs = ["...", "nginx"] #nginx doesnt work well in nix for some reason
+
+[phases.build]
+cmds = [
+  "...",
+  "echo \"hewooooo :3\" > /app/content/hai.txt",
+  "cat /app/content/hai.txt",
+  ]
+
+[start] 
+cmd = "nginx -c /app/conf/nginx.conf && sleep infinity"
