@@ -1,0 +1,1 @@
+nixpacks build -c nixpacks.toml -n macro .

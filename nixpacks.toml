@@ -1,6 +1,6 @@
 [phases.setup]
 nixPkgs = ["...", "cron"]
-aptPkgs = ["...", "nginx"] #nginx doesnt work well in nix for some reason
+aptPkgs = ["...", "nginx", "systemctl"] #nginx doesnt work well in nix for some reason
 
 [phases.build]
 cmds = [
