@@ -1,10 +1,13 @@
 [phases.setup]
-nixPkgs = ["...", "cron"]
-aptPkgs = ["...", "nginx", "systemctl"] #nginx doesnt work well in nix for some reason
+nixPkgs = ["...", "cron", "envsubst"]
+aptPkgs = ["...", "nginx"] #nginx doesnt work well in nix for some reason
 
 [phases.build]
 cmds = [
   "...",
+  "echo ${PORT}",
+  "envsubst < /app/conf/nginx.conf.template",
+  "envsubst < /app/conf/nginx.conf.template > /app/conf/nginx.conf",
   "echo \"hewooooo :3\" > /app/content/hai.txt",
   "cat /app/content/hai.txt",
   ]

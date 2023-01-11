@@ -1,1 +1,1 @@
-nixpacks build -c nixpacks.toml -n macro .
+nixpacks build -e PORT=80 -c nixpacks.toml -n macro .
