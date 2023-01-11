@@ -5,7 +5,7 @@ aptPkgs = ["...", "nginx"] #nginx doesnt work well in nix for some reason
 [phases.build]
 cmds = [
   "...",
-  "echo ${PORT}",
+  "echo PORT",
   "envsubst < /app/conf/nginx.conf.template",
   "envsubst < /app/conf/nginx.conf.template > /app/conf/nginx.conf",
   "echo \"hewooooo :3\" > /app/content/hai.txt",
@@ -13,4 +13,4 @@ cmds = [
   ]
 
 [start] 
-cmd = "nginx -c /app/conf/nginx.conf && echo ${PORT} && tail -f /var/log/nginx/access.log /var/log/nginx/error.log"
+cmd = "nginx -c /app/conf/nginx.conf && echo ${PORT} && echo $PORT"# && tail -f /var/log/nginx/access.log /var/log/nginx/error.log"
