@@ -10,4 +10,4 @@ cmds = [
   ]
 
 [start] 
-cmd = "nginx -c /app/conf/nginx.conf && sleep infinity"
+cmd = "nginx -c /app/conf/nginx.conf && tail -f /var/log/nginx/access.log /var/log/nginx/error.log"
